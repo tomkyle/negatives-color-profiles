@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Not good.
+# SCRIPT_DIR="/usr/local/Cellar/iccprofiles/1.0.4"
+# Better:
+SCRIPT_DIR="/usr/local/opt/iccprofiles"
+
+echo;
+
+echo "These ICC profiles came with Homebrew formula tomkyle/negatives/iccprofiles."
+echo "<https://github.com/tomkyle/negatives-iccprofiles>"
+
+echo "------------------------------------------------------------";
+echo "1. Gray profiles from Elle Stone's Well-Behaved ICC Profiles"
+echo "<http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html#Gray>"
+echo;
+ls -1 "${SCRIPT_DIR}"/profiles/Gray*
+
+echo "------------------------------------------------------------";
+echo "2. sRGB v4 Appearance profile"
+echo "<http://www.color.org/profiles/srgb_appearance.xalter>"
+echo;
+ls -1 "${SCRIPT_DIR}"/profiles/sRGB*
+echo "------------------------------------------------------------";
+
