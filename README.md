@@ -125,7 +125,7 @@ List all profiles delivered with this package:
 
 ```bash
 $ iccprofiles summary
-# outputs:
+# outputs (shortened):
 
 These ICC profiles came with Homebrew formula tomkyle/negatives/iccprofiles.
 <https://github.com/tomkyle/negatives-iccprofiles>
