@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-
+# Consistent package location
 HOMEBREW_OPT_DIR=$(brew --prefix $(basename $0))
+
+# Where the profiles are stored
 PROFILES_DIR="${HOMEBREW_OPT_DIR}/profiles"
 
 echo;
