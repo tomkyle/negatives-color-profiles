@@ -60,7 +60,7 @@ CREDITS_FILE="CREDITS.txt"
 
 #
 # ---------------------------------------------------------
-# No parameters given; show summary
+# No parameters given; show short help
 # ---------------------------------------------------------
 
 if [ "$#" -eq 0 ]; then
