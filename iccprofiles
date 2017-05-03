@@ -47,6 +47,8 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Consistent package location
 HOMEBREW_OPT_DIR=$(brew --prefix $(basename $0))
+# Hack for development purposes
+# HOMEBREW_OPT_DIR=$SCRIPT_DIR
 
 # Where the profiles are stored
 PROFILES_DIR="${HOMEBREW_OPT_DIR}/profiles"
@@ -54,6 +56,9 @@ PROFILES_DIR="${HOMEBREW_OPT_DIR}/profiles"
 # Default profiles
 GRAY_LINEAR_PROFILE_DEFAULT="Gray-elle-V4-g10.icc"
 SRGB_V4_PROFILE_DEFAULT="sRGB_ICC_v4_Appearance.icc"
+SRGB_V4_PROFILE_GAMMA_10="sRGB-elle-V4-g10.icc"
+SRGB_V4_PROFILE_GAMMA_18="sRGB-elle-V4-g18.icc"
+SRGB_V4_PROFILE_GAMMA_22="sRGB-elle-V4-g22.icc"
 
 # Informative files
 LICENSE_FILE="LICENSE.txt"
@@ -99,6 +104,10 @@ do
 	   	ls -1 "${PROFILES_DIR}/${GRAY_LINEAR_PROFILE_DEFAULT}"
         	;;
 
+        srgb-linear)
+		ls -1 "${PROFILES_DIR}/${SRGB_V4_PROFILE_GAMMA_10}"
+            	;;
+
         srgb-v4)
 		ls -1 "${PROFILES_DIR}/${SRGB_V4_PROFILE_DEFAULT}"
             	;;
@@ -110,17 +119,18 @@ do
 		echo;
 
 		echo "--------------------------------------------------------------------------";
-		echo "1. Gray profiles from Elle Stone's Well-Behaved ICC Profiles"
+		echo "1. Gray and sRGB v4 profiles from Elle Stone's Well-Behaved ICC Profiles"
 		echo "<http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html#Gray>"
+		echo "<http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html#sRGB>"
 		echo;
-		ls -1 "${PROFILES_DIR}"/Gray*
+		ls -1 "${PROFILES_DIR}"/*-elle-*
 		echo;
 
 		echo "--------------------------------------------------------------------------";
 		echo "2. sRGB v4 Appearance profile from ICC/International Color Consortium"
 		echo "<http://www.color.org/profiles/srgb_appearance.xalter>"
 		echo;
-		ls -1 "${PROFILES_DIR}"/sRGB*
+		ls -1 "${PROFILES_DIR}"/*_ICC_*
 		echo;
 
 		echo "--------------------------------------------------------------------------";
