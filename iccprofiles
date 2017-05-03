@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+
+# ---------------------------------------------------------
+# Prerequisites
+# ---------------------------------------------------------
+
 # Consistent package location
 HOMEBREW_OPT_DIR=$(brew --prefix $(basename $0))
 
