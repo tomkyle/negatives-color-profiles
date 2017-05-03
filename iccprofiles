@@ -16,6 +16,25 @@
 #
 # *******************************************************
 
+# ---------------------------------------------------------
+# Runtime Environment
+# ---------------------------------------------------------
+set -o errexit
+set -o nounset
+set -o pipefail
+# set -o xtrace
+
+function exit_err {
+	echo >&2 "${@}"; exit 1;
+}
+
+function require  {
+	command -v $1 >/dev/null 2>&1 || exit_err "pneg requires ${1} but it's not installed";
+}
+
+# Requirements
+require brew
+
 
 # ---------------------------------------------------------
 # Prerequisites
