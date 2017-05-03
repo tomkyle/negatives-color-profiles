@@ -54,6 +54,9 @@ PROFILES_DIR="${HOMEBREW_OPT_DIR}/profiles"
 # Default profiles
 GRAY_LINEAR_PROFILE_DEFAULT="Gray-elle-V4-g10.icc"
 SRGB_V4_PROFILE_DEFAULT="sRGB_ICC_v4_Appearance.icc"
+SRGB_V4_PROFILE_GAMMA_10="sRGB-elle-V4-g10.icc"
+SRGB_V4_PROFILE_GAMMA_18="sRGB-elle-V4-g18.icc"
+SRGB_V4_PROFILE_GAMMA_22="sRGB-elle-V4-g22.icc"
 
 # Informative files
 LICENSE_FILE="LICENSE.txt"
@@ -98,6 +101,10 @@ do
         gray-linear)
 	   	ls -1 "${PROFILES_DIR}/${GRAY_LINEAR_PROFILE_DEFAULT}"
         	;;
+
+        srgb-linear)
+		ls -1 "${PROFILES_DIR}/${SRGB_V4_PROFILE_GAMMA_10}"
+            	;;
 
         srgb-v4)
 		ls -1 "${PROFILES_DIR}/${SRGB_V4_PROFILE_DEFAULT}"
