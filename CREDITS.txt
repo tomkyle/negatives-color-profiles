@@ -1,0 +1,8 @@
+CREDITS to the respective authors of:
+
+Elle Stone's Well-Behaved ICC Profiles,
+of which the V4 Gray profiles are distributed with this package.
+<http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html>
+
+International Color Consortium: sRGB v4 Appearance profile
+<http://www.color.org/profiles/srgb_appearance.xalter>
