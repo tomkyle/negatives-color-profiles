@@ -27,18 +27,18 @@ The `directory` command will output the directory whery the ICC profiles are loc
 
 ```bash
 $ iccprofiles directory
+# outputs:
 /usr/local/opt/iccprofiles/profiles
 ```
 
-### Show summary
-
-```bash
-$ iccprofiles
-```
+### No parameters: show summary
 
 The script lists all profiles delivered with this package. Output looks like this:
 
-```
+```bash
+$ iccprofiles
+# outputs:
+
 These ICC profiles came with Homebrew formula tomkyle/negatives/iccprofiles.
 <https://github.com/tomkyle/negatives-iccprofiles>
 ------------------------------------------------------------
