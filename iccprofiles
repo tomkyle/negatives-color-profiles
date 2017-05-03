@@ -1,6 +1,43 @@
 #!/usr/bin/env bash
 
 
+# *******************************************************
+#
+#  iccprofiles
+#
+#  Author:   Carsten Witt <tomkyle@posteo.de>
+#  Homepage: <https://github.com/tomkyle/negatives-iccprofiles>
+#
+#  Elle Stone's Well-Behaved ICC Profiles:
+#  <http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html>
+#
+#  ICC's sRGB v4 Appearance profile:
+#  <http://www.color.org/profiles/srgb_appearance.xalter>
+#
+# *******************************************************
+
+
+# ---------------------------------------------------------
+# Runtime Environment
+# ---------------------------------------------------------
+
+set -o errexit
+set -o nounset
+set -o pipefail
+# set -o xtrace
+
+function exit_err {
+	echo >&2 "${@}"; exit 1;
+}
+
+function require  {
+	command -v $1 >/dev/null 2>&1 || exit_err "Program '${1}' required, but it's not installed";
+}
+
+# Requirements
+require brew
+
+
 # ---------------------------------------------------------
 # Prerequisites
 # ---------------------------------------------------------
@@ -25,7 +62,7 @@ CREDITS_FILE="CREDITS.txt"
 
 #
 # ---------------------------------------------------------
-# No parameters given; show summary
+# No parameters given; show short help
 # ---------------------------------------------------------
 
 if [ "$#" -eq 0 ]; then
