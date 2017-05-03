@@ -18,22 +18,27 @@ PROFILES_DIR="${HOMEBREW_OPT_DIR}/profiles"
 GRAY_LINEAR_PROFILE_DEFAULT="Gray-elle-V4-g10.icc"
 SRGB_V4_PROFILE_DEFAULT="sRGB_ICC_v4_Appearance.icc"
 
+LICENSE_FILE = "LICENSE.txt"
+USAGE_FILE = "USAGE.txt"
+CREDITS_FILE = "CREDITS.txt"
+
+#
 # ---------------------------------------------------------
 # No parameters given; show summary
 # ---------------------------------------------------------
 
 if [ "$#" -eq 0 ]; then
-	if [ -f "${HOMEBREW_OPT_DIR}/USAGE.txt" ]; then
-	   	cat "${HOMEBREW_OPT_DIR}/USAGE.txt"
+	if [ -f "${HOMEBREW_OPT_DIR}/${USAGE_FILE}" ]; then
+	   	cat "${HOMEBREW_OPT_DIR}/${USAGE_FILE}"
 	else
-		cat "${SCRIPT_DIR}/USAGE.txt"
+		cat "${SCRIPT_DIR}/${USAGE_FILE}"
 	fi
 
 	echo;
-	if [ -f "${HOMEBREW_OPT_DIR}/CREDITS.txt" ]; then
-	   	cat "${HOMEBREW_OPT_DIR}/CREDITS.txt"
+	if [ -f "${HOMEBREW_OPT_DIR}/${CREDITS_FILE}" ]; then
+	   	cat "${HOMEBREW_OPT_DIR}/${CREDITS_FILE}"
 	else
-		cat "${SCRIPT_DIR}/CREDITS.txt"
+		cat "${SCRIPT_DIR}/${CREDITS_FILE}"
 	fi
 	echo;
 	exit;
