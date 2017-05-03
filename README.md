@@ -10,7 +10,7 @@ Elle Stone's [Well-Behaved ICC Profiles](http://ninedegreesbelow.com/photography
 
 > These profiles are for use with RGB images that have been converted to monotone gray (black and white). The main reason to convert from RGB to Gray is to save the file space needed to encode the image.
 
-This repo is just a redistribution of Elle Stone's [Gray profiles](http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html#Gray), as of May 2017. Please also have a look on her official repo: [Elle's ICC profiles](https://github.com/ellelstone/elles_icc_profiles) on GitHub.
+This repo just distributes some of Elle Stone's [Gray profiles](http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html#Gray), as of May 2017. Please also have a look on her official repo: [Elle's ICC profiles](https://github.com/ellelstone/elles_icc_profiles) on GitHub.
 
 
 
