@@ -16,9 +16,11 @@
 #
 # *******************************************************
 
+
 # ---------------------------------------------------------
 # Runtime Environment
 # ---------------------------------------------------------
+
 set -o errexit
 set -o nounset
 set -o pipefail
@@ -29,7 +31,7 @@ function exit_err {
 }
 
 function require  {
-	command -v $1 >/dev/null 2>&1 || exit_err "pneg requires ${1} but it's not installed";
+	command -v $1 >/dev/null 2>&1 || exit_err "Program '${1}' required, but it's not installed";
 }
 
 # Requirements
