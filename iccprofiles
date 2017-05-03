@@ -3,21 +3,23 @@
 # Not good.
 # SCRIPT_DIR="/usr/local/Cellar/iccprofiles/1.0.4"
 # Better:
-SCRIPT_DIR=$(brew --prefix $(basename iccprofiles))
+SCRIPT_DIR=$(brew --prefix $(basename $0))
 
+echo;
 echo "These ICC profiles came with Homebrew formula tomkyle/negatives/iccprofiles."
 echo "<https://github.com/tomkyle/negatives-iccprofiles>"
 
-echo "------------------------------------------------------------";
+echo "--------------------------------------------------------------------------";
 echo "1. Gray profiles from Elle Stone's Well-Behaved ICC Profiles"
 echo "<http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html#Gray>"
 echo;
 ls -1 "${SCRIPT_DIR}"/profiles/Gray*
 
-echo "------------------------------------------------------------";
-echo "2. sRGB v4 Appearance profile"
+echo "--------------------------------------------------------------------------";
+echo "2. sRGB v4 Appearance profile from ICC/International Color Consortium"
 echo "<http://www.color.org/profiles/srgb_appearance.xalter>"
 echo;
 ls -1 "${SCRIPT_DIR}"/profiles/sRGB*
-echo "------------------------------------------------------------";
+echo "--------------------------------------------------------------------------";
 
+echo;
