@@ -18,9 +18,9 @@ PROFILES_DIR="${HOMEBREW_OPT_DIR}/profiles"
 GRAY_LINEAR_PROFILE_DEFAULT="Gray-elle-V4-g10.icc"
 SRGB_V4_PROFILE_DEFAULT="sRGB_ICC_v4_Appearance.icc"
 
-LICENSE_FILE = "LICENSE.txt"
-USAGE_FILE = "USAGE.txt"
-CREDITS_FILE = "CREDITS.txt"
+LICENSE_FILE="LICENSE.txt"
+USAGE_FILE="USAGE.txt"
+CREDITS_FILE="CREDITS.txt"
 
 #
 # ---------------------------------------------------------
