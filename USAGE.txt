@@ -2,9 +2,9 @@ USAGE:
 iccprofiles [command]
 
 COMMANDS:
-directory     Display the directory where the ICC profiles are stored
-gray-linear   Full path to profile 'Gray-elle-V4-g10.icc'
-srgb-v4       Full path to profile 'sRGB_ICC_v4_Appearance.icc'
-summary       Display a summary of profiles coming with this package.
+directory      Display the directory where the ICC profiles are stored
+gray-linear    Full path to profile 'Gray-elle-V4-g10.icc'
+srgb-v4        Full path to profile 'sRGB_ICC_v4_Appearance.icc'
+summary        Display a summary of profiles coming with this package.
 
 DOCUMENTATION: <https://github.com/tomkyle/negatives-iccprofiles>

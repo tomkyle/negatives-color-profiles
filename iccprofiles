@@ -5,6 +5,9 @@
 # Prerequisites
 # ---------------------------------------------------------
 
+# Directory where this script lives in
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 # Consistent package location
 HOMEBREW_OPT_DIR=$(brew --prefix $(basename $0))
 
@@ -20,17 +23,18 @@ SRGB_V4_PROFILE_DEFAULT="sRGB_ICC_v4_Appearance.icc"
 # ---------------------------------------------------------
 
 if [ "$#" -eq 0 ]; then
+	if [ -f "${HOMEBREW_OPT_DIR}/USAGE.txt" ]; then
+	   	cat "${HOMEBREW_OPT_DIR}/USAGE.txt"
+	else
+		cat "${SCRIPT_DIR}/USAGE.txt"
+	fi
 
-	echo "1. Usage:"
-	echo "$(basename $0) [command]"
 	echo;
-	echo "2. Available commands:"
-	echo "directory     Display the directory where the ICC profiles are stored"
-	echo "gray-linear   Full path to profile '${GRAY_LINEAR_PROFILE_DEFAULT}'"
-	echo "srgb-v4       Full path to profile '${SRGB_V4_PROFILE_DEFAULT}'"
-	echo "summary       Display a summary of profiles coming with this package."
-	echo;
-	echo "3. Full documentation: <https://github.com/tomkyle/negatives-iccprofiles>"
+	if [ -f "${HOMEBREW_OPT_DIR}/CREDITS.txt" ]; then
+	   	cat "${HOMEBREW_OPT_DIR}/CREDITS.txt"
+	else
+		cat "${SCRIPT_DIR}/CREDITS.txt"
+	fi
 	echo;
 	exit;
 fi
