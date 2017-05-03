@@ -19,12 +19,52 @@ This sRGB profile is provided by the ICC (International Color Consortium). See t
 
 > This profile is a v4 replacement for commonly used sRGB v2 profiles. It gives better results in workflows that implement the ICC v4 specification, and is intended to be used in combination with other ICC v4 profiles.
 
+## Requirements
+
+- Install [Homebrew](https://brew.sh/) on your Mac - [Installationsanleitung auf deutsch](https://brew.sh/index_de.html)
+
+
+## Installation
+
+This Homebrew formula is part of the [tomkyle/negatives Homebrew tap](https://github.com/tomkyle/homebrew-negatives). It is recommended to install the tap first:
+
+```bash
+$ brew tap tomkyle/negatives
+$ brew install iccprofiles
+```
+
+As “tapping” first is not neccessarily needed, you can install the formula directly:
+
+```bash
+$ brew install tomkyle/negatives/iccprofiles
+```
+
+
 
 
 ## Usage
 
+### Without parameters: display short help
 
-**Command parameters enable you to store profile paths in a bash variable, like so:**
+
+```bash
+$ iccprofiles
+# outputs
+
+1. Usage:
+iccprofiles [command]
+
+2. Available commands:
+directory     Display the directory where the ICC profiles are stored
+gray-linear   Full path to profile 'Gray-elle-V4-g10.icc'
+srgb-v4       Full path to profile 'sRGB_ICC_v4_Appearance.icc'
+summary       Display a summary of profiles coming with this package.
+```
+
+
+### Command parameters
+
+Command parameters enable you to store profile paths in a bash variable, like so:
 
 
 ```bash
@@ -35,10 +75,9 @@ PROFILE_PATH=$(iccprofiles srgb-v4)
 echo $PROFILE_PATH
 ```
 
-### Available commands
 
-
-**Profiles location:** The `directory` parameters will output the directory whery the ICC profiles are stored in local Homebrew ecosystem:
+#### directory
+Show the directory where the ICC profiles are stored in local Homebrew ecosystem:
 
 ```bash
 $ iccprofiles directory
@@ -47,7 +86,8 @@ $ iccprofiles directory
 /usr/local/opt/iccprofiles/profiles
 ```
 
-**Linear gray profile with gamma 1.0:** the `gray-linear` parameters outputs the full path to a Linear Gray/Gamma 1.0 profile.
+#### gray-linear
+Show the full path to a Elle Stone's Linear Gray/Gamma 1.0 profile:
 
 ```bash
 $ iccprofiles gray-linear
@@ -57,7 +97,8 @@ $ iccprofiles gray-linear
 ```
 
 
-**sRGB v4 Appearance:** the `srgb-v4` parameters outputs the full path to the ICC's sRGB v4 Appearance profile.
+#### srgb-v4
+Show the full path to the ICC's sRGB v4 Appearance profile:
 
 ```bash
 $ iccprofiles srgb-v4
@@ -66,12 +107,11 @@ $ iccprofiles srgb-v4
 /usr/local/opt/iccprofiles/profiles/Gray-elle-V4-g10.icc
 ```
 
-### No parameters: show summary
-
-The script lists all profiles delivered with this package. Output looks like this:
+#### summary
+List all profiles delivered with this package:
 
 ```bash
-$ iccprofiles
+$ iccprofiles summary
 # outputs:
 
 These ICC profiles came with Homebrew formula tomkyle/negatives/iccprofiles.
