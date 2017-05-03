@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
+
 HOMEBREW_OPT_DIR=$(brew --prefix $(basename $0))
 PROFILES_DIR="${HOMEBREW_OPT_DIR}/profiles"
-
+echo $HOMEBREW_CELLAR
 echo;
 echo "These ICC profiles came with Homebrew formula tomkyle/negatives/iccprofiles."
 echo "<https://github.com/tomkyle/negatives-iccprofiles>"
