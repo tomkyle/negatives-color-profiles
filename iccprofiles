@@ -3,9 +3,7 @@
 # Not good.
 # SCRIPT_DIR="/usr/local/Cellar/iccprofiles/1.0.4"
 # Better:
-SCRIPT_DIR="/usr/local/opt/iccprofiles"
-
-echo;
+SCRIPT_DIR=$(brew --prefix $(basename iccprofiles))
 
 echo "These ICC profiles came with Homebrew formula tomkyle/negatives/iccprofiles."
 echo "<https://github.com/tomkyle/negatives-iccprofiles>"
