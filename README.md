@@ -1,7 +1,8 @@
 
 # Useful ICC profiles
 
-**This repo is intended for making the profiles “installable“ as a Homebrew formula.**
+**This repo is intended for making the profiles “available“ for image-related scripts, without “installing” them into the OS.**
+
 
 ## Elle Stone’s Well-Behaved ICC Profiles
 
@@ -18,17 +19,51 @@ This sRGB profile is provided by the ICC (International Color Consortium). See t
 
 > This profile is a v4 replacement for commonly used sRGB v2 profiles. It gives better results in workflows that implement the ICC v4 specification, and is intended to be used in combination with other ICC v4 profiles.
 
+
+
 ## Usage
 
 
-### Show profiles directory
+**Command parameters enable you to store profile paths in a bash variable, like so:**
 
-The `directory` command will output the directory whery the ICC profiles are located in local Homebrew ecosystem:
+
+```bash
+#!/usr/bin/env bash
+# myscript.sh
+
+PROFILE_PATH=$(iccprofiles srgb-v4)
+echo $PROFILE_PATH
+```
+
+### Available commands
+
+
+**Profiles location:** The `directory` parameters will output the directory whery the ICC profiles are stored in local Homebrew ecosystem:
 
 ```bash
 $ iccprofiles directory
 # outputs:
+
 /usr/local/opt/iccprofiles/profiles
+```
+
+**Linear gray profile with gamma 1.0:** the `gray-linear` parameters outputs the full path to a Linear Gray/Gamma 1.0 profile.
+
+```bash
+$ iccprofiles gray-linear
+# outputs:
+
+/usr/local/opt/iccprofiles/profiles/Gray-elle-V4-g10.icc
+```
+
+
+**sRGB v4 Appearance:** the `srgb-v4` parameters outputs the full path to the ICC's sRGB v4 Appearance profile.
+
+```bash
+$ iccprofiles srgb-v4
+# outputs:
+
+/usr/local/opt/iccprofiles/profiles/Gray-elle-V4-g10.icc
 ```
 
 ### No parameters: show summary

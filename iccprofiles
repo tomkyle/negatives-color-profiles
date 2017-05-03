@@ -44,9 +44,22 @@ fi
 
 
 # ---------------------------------------------------------
-# Show directory
+# Handle
 # ---------------------------------------------------------
 
-if [[ "${1}" -eq "directory" ]]; then
-	echo $PROFILES_DIR
-fi
+
+while test $# -gt 0
+do
+    case "$1" in
+        directory)   echo $PROFILES_DIR
+            ;;
+        gray-linear) ls -1 "${PROFILES_DIR}"/Gray-elle-V4-g10.icc
+            ;;
+        srgb-v4) ls -1 "${PROFILES_DIR}"/sRGB_ICC_v4_Appearance.icc
+            ;;
+    esac
+    shift
+done
+
+exit 0
+
