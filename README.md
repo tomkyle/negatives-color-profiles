@@ -20,6 +20,18 @@ This sRGB profile is provided by the ICC (International Color Consortium). See t
 
 ## Usage
 
+
+### Show profiles directory
+
+The `directory` command will output the directory whery the ICC profiles are located in local Homebrew ecosystem:
+
+```bash
+$ iccprofiles directory
+/usr/local/opt/iccprofiles/profiles
+```
+
+### Show summary
+
 ```bash
 $ iccprofiles
 ```
