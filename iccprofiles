@@ -1,6 +1,22 @@
 #!/usr/bin/env bash
 
 
+# *******************************************************
+#
+#  iccprofiles
+#
+#  Author:   Carsten Witt <tomkyle@posteo.de>
+#  Homepage: <https://github.com/tomkyle/negatives-iccprofiles>
+#
+#  Elle Stone's Well-Behaved ICC Profiles:
+#  <http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html>
+#
+#  ICC's sRGB v4 Appearance profile:
+#  <http://www.color.org/profiles/srgb_appearance.xalter>
+#
+# *******************************************************
+
+
 # ---------------------------------------------------------
 # Prerequisites
 # ---------------------------------------------------------
