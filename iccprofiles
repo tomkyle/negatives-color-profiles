@@ -47,6 +47,8 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Consistent package location
 HOMEBREW_OPT_DIR=$(brew --prefix $(basename $0))
+# Hack for development purposes
+# HOMEBREW_OPT_DIR=$SCRIPT_DIR
 
 # Where the profiles are stored
 PROFILES_DIR="${HOMEBREW_OPT_DIR}/profiles"
