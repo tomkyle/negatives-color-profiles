@@ -6,7 +6,11 @@ HOMEBREW_OPT_DIR=$(brew --prefix $(basename $0))
 # Where the profiles are stored
 PROFILES_DIR="${HOMEBREW_OPT_DIR}/profiles"
 
+
+# ---------------------------------------------------------
 # No parameters given; show summary
+# ---------------------------------------------------------
+
 if [ "$#" -eq 0 ]; then
 	echo;
 	echo "These ICC profiles came with Homebrew formula tomkyle/negatives/iccprofiles."
@@ -33,6 +37,10 @@ if [ "$#" -eq 0 ]; then
 	exit;
 fi
 
+
+# ---------------------------------------------------------
+# Show directory
+# ---------------------------------------------------------
 
 if [[ "${1}" -eq "directory" ]]; then
 	echo $PROFILES_DIR
