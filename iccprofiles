@@ -34,13 +34,25 @@ function require  {
 	command -v $1 >/dev/null 2>&1 || exit_err "Program '${1}' required, but it's not installed";
 }
 
+
+# --------------------------------------
 # Requirements
+# --------------------------------------
+
+# System commands
 require brew
+require dirname
+require basename
+require test
 
 
-# ---------------------------------------------------------
-# Prerequisites
-# ---------------------------------------------------------
+# ======================================
+#  Prerequisites
+# ======================================
+
+# --------------------------------------
+# Directories
+# --------------------------------------
 
 # Directory where this script lives in
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -49,6 +61,11 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 HOMEBREW_OPT_DIR=$(brew --prefix $(basename $0))
 # Hack for development purposes
 # HOMEBREW_OPT_DIR=$SCRIPT_DIR
+
+
+# --------------------------------------
+# ICC profiles
+# --------------------------------------
 
 # Where the profiles are stored
 PROFILES_DIR="${HOMEBREW_OPT_DIR}/profiles"
@@ -60,12 +77,21 @@ SRGB_V4_PROFILE_GAMMA_10="sRGB-elle-V4-g10.icc"
 SRGB_V4_PROFILE_GAMMA_18="sRGB-elle-V4-g18.icc"
 SRGB_V4_PROFILE_GAMMA_22="sRGB-elle-V4-g22.icc"
 
+
+# --------------------------------------
 # Informative files
+# --------------------------------------
 LICENSE_FILE="LICENSE"
 USAGE_FILE="USAGE"
 CREDITS_FILE="CREDITS"
 
-#
+
+
+# ======================================
+#  Examine parameters
+# ======================================
+
+
 # ---------------------------------------------------------
 # No parameters given; show short help
 # ---------------------------------------------------------
@@ -88,10 +114,9 @@ if [ "$#" -eq 0 ]; then
 fi
 
 
-# ---------------------------------------------------------
-# Handle parameters
-# ---------------------------------------------------------
-
+# --------------------------------------
+# Parse parameters
+# --------------------------------------
 
 while test $# -gt 0
 do
