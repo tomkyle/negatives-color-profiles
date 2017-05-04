@@ -61,9 +61,9 @@ SRGB_V4_PROFILE_GAMMA_18="sRGB-elle-V4-g18.icc"
 SRGB_V4_PROFILE_GAMMA_22="sRGB-elle-V4-g22.icc"
 
 # Informative files
-LICENSE_FILE="LICENSE.txt"
-USAGE_FILE="USAGE.txt"
-CREDITS_FILE="CREDITS.txt"
+LICENSE_FILE="LICENSE"
+USAGE_FILE="USAGE"
+CREDITS_FILE="CREDITS"
 
 #
 # ---------------------------------------------------------
