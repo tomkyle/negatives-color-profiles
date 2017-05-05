@@ -26,144 +26,153 @@ set -o nounset
 set -o pipefail
 # set -o xtrace
 
-function exit_err {
-	echo >&2 "${@}"; exit 1;
-}
-
-function require  {
-	command -v $1 >/dev/null 2>&1 || exit_err "Program '${1}' required, but it's not installed";
-}
-
-
-# --------------------------------------
-# Requirements
-# --------------------------------------
-
-# System commands
-require brew
-require dirname
-require basename
-require test
-
 
 # ======================================
-#  Prerequisites
+#  The main program
 # ======================================
 
-# --------------------------------------
-# Directories
-# --------------------------------------
+function main {
 
-# Directory where this script lives in
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+  function exit_err {
+    echo >&2 "${@}"; exit 1;
+  }
 
-# Consistent package location
-HOMEBREW_OPT_DIR=$(brew --prefix $(basename $0))
-# Hack for development purposes
-# HOMEBREW_OPT_DIR=$SCRIPT_DIR
+  function require  {
+    command -v $1 >/dev/null 2>&1 || exit_err "Program '${1}' required, but it's not installed";
+  }
 
 
-# --------------------------------------
-# ICC profiles
-# --------------------------------------
+  # --------------------------------------
+  # Requirements
+  # --------------------------------------
 
-# Where the profiles are stored
-PROFILES_DIR="${HOMEBREW_OPT_DIR}/profiles"
-
-# Default profiles
-GRAY_LINEAR_PROFILE_DEFAULT="Gray-elle-V4-g10.icc"
-SRGB_V4_PROFILE_DEFAULT="sRGB_ICC_v4_Appearance.icc"
-SRGB_V4_PROFILE_GAMMA_10="sRGB-elle-V4-g10.icc"
-SRGB_V4_PROFILE_GAMMA_18="sRGB-elle-V4-g18.icc"
-SRGB_V4_PROFILE_GAMMA_22="sRGB-elle-V4-g22.icc"
+  # System commands
+  require brew
+  require dirname
+  require basename
+  require test
 
 
-# --------------------------------------
-# Informative files
-# --------------------------------------
-LICENSE_FILE="LICENSE"
-USAGE_FILE="USAGE"
-CREDITS_FILE="CREDITS"
+  # ======================================
+  #  Prerequisites
+  # ======================================
+
+  # --------------------------------------
+  # Directories
+  # --------------------------------------
+
+  # Directory where this script lives in
+  SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+  # Consistent package location
+  HOMEBREW_OPT_DIR=$(brew --prefix $(basename $0))
+  # Hack for development purposes
+  # HOMEBREW_OPT_DIR=$SCRIPT_DIR
+
+
+  # --------------------------------------
+  # ICC profiles
+  # --------------------------------------
+
+  # Where the profiles are stored
+  PROFILES_DIR="${HOMEBREW_OPT_DIR}/profiles"
+
+  # Default profiles
+  GRAY_LINEAR_PROFILE_DEFAULT="Gray-elle-V4-g10.icc"
+  SRGB_V4_PROFILE_DEFAULT="sRGB_ICC_v4_Appearance.icc"
+  SRGB_V4_PROFILE_GAMMA_10="sRGB-elle-V4-g10.icc"
+  SRGB_V4_PROFILE_GAMMA_18="sRGB-elle-V4-g18.icc"
+  SRGB_V4_PROFILE_GAMMA_22="sRGB-elle-V4-g22.icc"
+
+
+  # --------------------------------------
+  # Informative files
+  # --------------------------------------
+  LICENSE_FILE="LICENSE"
+  USAGE_FILE="USAGE"
+  CREDITS_FILE="CREDITS"
 
 
 
-# ======================================
-#  Examine parameters
-# ======================================
+  # ======================================
+  #  Examine parameters
+  # ======================================
 
 
-# ---------------------------------------------------------
-# No parameters given; show short help
-# ---------------------------------------------------------
+  # ---------------------------------------------------------
+  # No parameters given; show short help
+  # ---------------------------------------------------------
 
-if [ "$#" -eq 0 ]; then
-	if [ -f "${HOMEBREW_OPT_DIR}/${USAGE_FILE}" ]; then
-	   	cat "${HOMEBREW_OPT_DIR}/${USAGE_FILE}"
-	else
-		cat "${SCRIPT_DIR}/${USAGE_FILE}"
-	fi
+  if [ "$#" -eq 0 ]; then
+    if [ -f "${HOMEBREW_OPT_DIR}/${USAGE_FILE}" ]; then
+      cat "${HOMEBREW_OPT_DIR}/${USAGE_FILE}"
+    else
+      cat "${SCRIPT_DIR}/${USAGE_FILE}"
+    fi
 
-	echo;
-	if [ -f "${HOMEBREW_OPT_DIR}/${CREDITS_FILE}" ]; then
-	   	cat "${HOMEBREW_OPT_DIR}/${CREDITS_FILE}"
-	else
-		cat "${SCRIPT_DIR}/${CREDITS_FILE}"
-	fi
-	echo;
-	exit 1;
-fi
+    echo;
+    if [ -f "${HOMEBREW_OPT_DIR}/${CREDITS_FILE}" ]; then
+      cat "${HOMEBREW_OPT_DIR}/${CREDITS_FILE}"
+    else
+      cat "${SCRIPT_DIR}/${CREDITS_FILE}"
+    fi
+    echo;
+    exit 1;
+  fi
 
 
-# --------------------------------------
-# Parse parameters
-# --------------------------------------
+  # --------------------------------------
+  # Parse parameters
+  # --------------------------------------
 
-while test $# -gt 0
-do
+  while test $# -gt 0
+  do
     case "$1" in
-        directory)
-		echo $PROFILES_DIR
-            	;;
+      directory)
+        echo $PROFILES_DIR
+        ;;
 
-        gray-linear)
-	   	ls -1 "${PROFILES_DIR}/${GRAY_LINEAR_PROFILE_DEFAULT}"
-        	;;
+      gray-linear)
+        ls -1 "${PROFILES_DIR}/${GRAY_LINEAR_PROFILE_DEFAULT}"
+        ;;
 
-        srgb-linear)
-		ls -1 "${PROFILES_DIR}/${SRGB_V4_PROFILE_GAMMA_10}"
-            	;;
+      srgb-linear)
+        ls -1 "${PROFILES_DIR}/${SRGB_V4_PROFILE_GAMMA_10}"
+        ;;
 
-        srgb-v4)
-		ls -1 "${PROFILES_DIR}/${SRGB_V4_PROFILE_DEFAULT}"
-            	;;
+      srgb-v4)
+        ls -1 "${PROFILES_DIR}/${SRGB_V4_PROFILE_DEFAULT}"
+        ;;
 
-        summary)
-		echo;
-		echo "These ICC profiles came with Homebrew formula tomkyle/negatives/color-profiles."
-		echo "<https://github.com/tomkyle/negatives-color-profiles>"
-		echo;
+      summary)
+        echo;
+        echo "These ICC profiles came with Homebrew formula tomkyle/negatives/color-profiles."
+        echo "<https://github.com/tomkyle/negatives-color-profiles>"
+        echo;
 
-		echo "--------------------------------------------------------------------------";
-		echo "1. Gray and sRGB v4 profiles from Elle Stone's Well-Behaved ICC Profiles"
-		echo "<http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html#Gray>"
-		echo "<http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html#sRGB>"
-		echo;
-		ls -1 "${PROFILES_DIR}"/*-elle-*
-		echo;
+        echo "--------------------------------------------------------------------------";
+        echo "1. Gray and sRGB v4 profiles from Elle Stone's Well-Behaved ICC Profiles"
+        echo "<http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html#Gray>"
+        echo "<http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html#sRGB>"
+        echo;
+        ls -1 "${PROFILES_DIR}"/*-elle-*
+        echo;
 
-		echo "--------------------------------------------------------------------------";
-		echo "2. sRGB v4 Appearance profile from ICC/International Color Consortium"
-		echo "<http://www.color.org/profiles/srgb_appearance.xalter>"
-		echo;
-		ls -1 "${PROFILES_DIR}"/*_ICC_*
-		echo;
+        echo "--------------------------------------------------------------------------";
+        echo "2. sRGB v4 Appearance profile from ICC/International Color Consortium"
+        echo "<http://www.color.org/profiles/srgb_appearance.xalter>"
+        echo;
+        ls -1 "${PROFILES_DIR}"/*_ICC_*
+        echo;
 
-		echo "--------------------------------------------------------------------------";
-		echo;
-            	;;
+        echo "--------------------------------------------------------------------------";
+        echo;
+        ;;
     esac
     shift
-done
+  done
 
-exit 0
+  exit 0
+}
 
+main "$@"
