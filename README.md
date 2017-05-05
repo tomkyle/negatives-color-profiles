@@ -30,13 +30,13 @@ This Homebrew formula is part of the [tomkyle/negatives Homebrew tap](https://gi
 
 ```bash
 $ brew tap tomkyle/negatives
-$ brew install iccprofiles
+$ brew install color-profiles
 ```
 
 As “tapping” first is not neccessarily needed, you can install the formula directly:
 
 ```bash
-$ brew install tomkyle/negatives/iccprofiles
+$ brew install tomkyle/negatives/color-profiles
 ```
 
 
@@ -48,11 +48,11 @@ $ brew install tomkyle/negatives/iccprofiles
 
 
 ```bash
-$ iccprofiles
+$ color-profiles
 # outputs
 
 1. Usage:
-iccprofiles [command]
+color-profiles [command]
 
 2. Available commands:
 directory     Display the directory where the ICC profiles are stored
@@ -72,7 +72,7 @@ Command parameters enable you to store profile paths in a bash variable, like so
 #!/usr/bin/env bash
 # myscript.sh
 
-PROFILE_PATH=$(iccprofiles srgb-v4)
+PROFILE_PATH=$(color-profiles srgb-v4)
 echo $PROFILE_PATH
 ```
 
@@ -81,20 +81,20 @@ echo $PROFILE_PATH
 Show the directory where the ICC profiles are stored in local Homebrew ecosystem:
 
 ```bash
-$ iccprofiles directory
+$ color-profiles directory
 # outputs:
 
-/usr/local/opt/iccprofiles/profiles
+/usr/local/opt/color-profiles/profiles
 ```
 
 #### gray-linear
 Show the full path to a Elle Stone's Linear Gray/Gamma 1.0 profile:
 
 ```bash
-$ iccprofiles gray-linear
+$ color-profiles gray-linear
 # outputs:
 
-/usr/local/opt/iccprofiles/profiles/Gray-elle-V4-g10.icc
+/usr/local/opt/color-profiles/profiles/Gray-elle-V4-g10.icc
 ```
 
 
@@ -102,10 +102,10 @@ $ iccprofiles gray-linear
 Show the full path to a Elle Stone's Linear sRGB v4 1.0 profile:
 
 ```bash
-$ iccprofiles srgb-linear
+$ color-profiles srgb-linear
 # outputs:
 
-/usr/local/opt/iccprofiles/profiles/sRGB-elle-V4-g10.icc
+/usr/local/opt/color-profiles/profiles/sRGB-elle-V4-g10.icc
 ```
 
 
@@ -114,32 +114,32 @@ $ iccprofiles srgb-linear
 Show the full path to the ICC's sRGB v4 Appearance profile:
 
 ```bash
-$ iccprofiles srgb-v4
+$ color-profiles srgb-v4
 # outputs:
 
-/usr/local/opt/iccprofiles/profiles/Gray-elle-V4-g10.icc
+/usr/local/opt/color-profiles/profiles/Gray-elle-V4-g10.icc
 ```
 
 #### summary
 List all profiles delivered with this package:
 
 ```bash
-$ iccprofiles summary
+$ color-profiles summary
 # outputs (shortened):
 
-These ICC profiles came with Homebrew formula tomkyle/negatives/iccprofiles.
-<https://github.com/tomkyle/negatives-iccprofiles>
+These ICC profiles came with Homebrew formula tomkyle/negatives/color-profiles.
+<https://github.com/tomkyle/negatives-color-profiles>
 ------------------------------------------------------------
 1. Gray profiles from Elle Stone's Well-Behaved ICC Profiles
 <http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html#Gray>
 
-/usr/local/opt/iccprofiles/profiles/Gray-elle-V4-g10.icc
-/usr/local/opt/iccprofiles/profiles/Gray-elle-V4-g18.icc
-/usr/local/opt/iccprofiles/profiles/Gray-elle-V4-g22.icc
+/usr/local/opt/color-profiles/profiles/Gray-elle-V4-g10.icc
+/usr/local/opt/color-profiles/profiles/Gray-elle-V4-g18.icc
+/usr/local/opt/color-profiles/profiles/Gray-elle-V4-g22.icc
 ------------------------------------------------------------
 2. sRGB v4 Appearance profile
 <http://www.color.org/profiles/srgb_appearance.xalter>
 
-/usr/local/opt/iccprofiles/profiles/sRGB_ICC_v4_Appearance.icc
+/usr/local/opt/color-profiles/profiles/sRGB_ICC_v4_Appearance.icc
 ------------------------------------------------------------
 ```
