@@ -27,11 +27,11 @@ set -o pipefail
 # set -o xtrace
 
 function exit_err {
-	echo >&2 "${@}"; exit 1;
+  echo >&2 "${@}"; exit 1;
 }
 
 function require  {
-	command -v $1 >/dev/null 2>&1 || exit_err "Program '${1}' required, but it's not installed";
+  command -v $1 >/dev/null 2>&1 || exit_err "Program '${1}' required, but it's not installed";
 }
 
 
@@ -97,20 +97,20 @@ CREDITS_FILE="CREDITS"
 # ---------------------------------------------------------
 
 if [ "$#" -eq 0 ]; then
-	if [ -f "${HOMEBREW_OPT_DIR}/${USAGE_FILE}" ]; then
-	   	cat "${HOMEBREW_OPT_DIR}/${USAGE_FILE}"
-	else
-		cat "${SCRIPT_DIR}/${USAGE_FILE}"
-	fi
+  if [ -f "${HOMEBREW_OPT_DIR}/${USAGE_FILE}" ]; then
+    cat "${HOMEBREW_OPT_DIR}/${USAGE_FILE}"
+  else
+    cat "${SCRIPT_DIR}/${USAGE_FILE}"
+  fi
 
-	echo;
-	if [ -f "${HOMEBREW_OPT_DIR}/${CREDITS_FILE}" ]; then
-	   	cat "${HOMEBREW_OPT_DIR}/${CREDITS_FILE}"
-	else
-		cat "${SCRIPT_DIR}/${CREDITS_FILE}"
-	fi
-	echo;
-	exit 1;
+  echo;
+  if [ -f "${HOMEBREW_OPT_DIR}/${CREDITS_FILE}" ]; then
+    cat "${HOMEBREW_OPT_DIR}/${CREDITS_FILE}"
+  else
+    cat "${SCRIPT_DIR}/${CREDITS_FILE}"
+  fi
+  echo;
+  exit 1;
 fi
 
 
@@ -120,49 +120,49 @@ fi
 
 while test $# -gt 0
 do
-    case "$1" in
-        directory)
-		echo $PROFILES_DIR
-            	;;
+  case "$1" in
+    directory)
+      echo $PROFILES_DIR
+      ;;
 
-        gray-linear)
-	   	ls -1 "${PROFILES_DIR}/${GRAY_LINEAR_PROFILE_DEFAULT}"
-        	;;
+    gray-linear)
+      ls -1 "${PROFILES_DIR}/${GRAY_LINEAR_PROFILE_DEFAULT}"
+      ;;
 
-        srgb-linear)
-		ls -1 "${PROFILES_DIR}/${SRGB_V4_PROFILE_GAMMA_10}"
-            	;;
+    srgb-linear)
+      ls -1 "${PROFILES_DIR}/${SRGB_V4_PROFILE_GAMMA_10}"
+      ;;
 
-        srgb-v4)
-		ls -1 "${PROFILES_DIR}/${SRGB_V4_PROFILE_DEFAULT}"
-            	;;
+    srgb-v4)
+      ls -1 "${PROFILES_DIR}/${SRGB_V4_PROFILE_DEFAULT}"
+      ;;
 
-        summary)
-		echo;
-		echo "These ICC profiles came with Homebrew formula tomkyle/negatives/color-profiles."
-		echo "<https://github.com/tomkyle/negatives-color-profiles>"
-		echo;
+    summary)
+      echo;
+      echo "These ICC profiles came with Homebrew formula tomkyle/negatives/color-profiles."
+      echo "<https://github.com/tomkyle/negatives-color-profiles>"
+      echo;
 
-		echo "--------------------------------------------------------------------------";
-		echo "1. Gray and sRGB v4 profiles from Elle Stone's Well-Behaved ICC Profiles"
-		echo "<http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html#Gray>"
-		echo "<http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html#sRGB>"
-		echo;
-		ls -1 "${PROFILES_DIR}"/*-elle-*
-		echo;
+      echo "--------------------------------------------------------------------------";
+      echo "1. Gray and sRGB v4 profiles from Elle Stone's Well-Behaved ICC Profiles"
+      echo "<http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html#Gray>"
+      echo "<http://ninedegreesbelow.com/photography/lcms-make-icc-profiles.html#sRGB>"
+      echo;
+      ls -1 "${PROFILES_DIR}"/*-elle-*
+      echo;
 
-		echo "--------------------------------------------------------------------------";
-		echo "2. sRGB v4 Appearance profile from ICC/International Color Consortium"
-		echo "<http://www.color.org/profiles/srgb_appearance.xalter>"
-		echo;
-		ls -1 "${PROFILES_DIR}"/*_ICC_*
-		echo;
+      echo "--------------------------------------------------------------------------";
+      echo "2. sRGB v4 Appearance profile from ICC/International Color Consortium"
+      echo "<http://www.color.org/profiles/srgb_appearance.xalter>"
+      echo;
+      ls -1 "${PROFILES_DIR}"/*_ICC_*
+      echo;
 
-		echo "--------------------------------------------------------------------------";
-		echo;
-            	;;
-    esac
-    shift
+      echo "--------------------------------------------------------------------------";
+      echo;
+      ;;
+  esac
+  shift
 done
 
 exit 0
